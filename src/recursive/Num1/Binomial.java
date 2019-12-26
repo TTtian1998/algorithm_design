@@ -1,8 +1,4 @@
-package recursive.Num1;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+package Recursive.Num1;
 
 /**
  * @author 田泽鑫
@@ -105,10 +101,11 @@ public class Binomial {
         long a = caclu(n);
         long b = caclu(n-k);
         long c = caclu(k);
+        //组合计算公式
         long temp = a/(b*c);
         return temp;
     }
-    //阶乘
+    //阶乘 (最大计算到12,之后会溢出)
     public static long caclu(int num){
         int a = 1;
         if (num==1){
