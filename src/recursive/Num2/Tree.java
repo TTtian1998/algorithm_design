@@ -11,11 +11,11 @@ import java.util.Random;
  */
 class Tree extends JPanel {
     //递归次数(次数大于15时计算的很慢) 共有recursiveNum-3+1条黑色树干,其余为上色树干(树叶)
-    public static int recursiveNum = 10;
+    public static int recursiveNum = 12;
     // 起始树枝粗细
     public static int trunkWidth=13;
     //定义颜色数组
-    private static Color[] colors={Color.MAGENTA,Color.ORANGE,Color.RED,Color.PINK};
+    private static Color[] colors={Color.MAGENTA,Color.BLUE,Color.RED,Color.PINK};
     //创建随机对象
     private static final Random rand = new Random();
     //倾斜度，随机倾斜度，树枝长度
@@ -72,6 +72,7 @@ class Tree extends JPanel {
         Point p = new Point();
         //将矩形坐标 (x, y) 转换成极坐标 (r, theta)，返回所得角 theta
         angle = Math.atan2(p2.x-p1.x,p1.y-p2.y);
+        //                  减
         randomAngle = angle - PI/(Math.random()*15+2);
         branchLength = Math.sqrt((p2.x-p1.x)*(p2.x-p1.x)+(p2.y-p1.y)*(p2.y-p1.y))*4/5;
         p.x= (int)(p2.x + branchLength*Math.sin(randomAngle));
@@ -82,6 +83,7 @@ class Tree extends JPanel {
     private Point rightPoint(Point p1,Point p2){
         Point p = new Point();
         angle = Math.atan2(p2.x-p1.x,p1.y-p2.y);
+        //                  加
         randomAngle = angle + PI/(Math.random()*15+2);
         branchLength = Math.sqrt((p2.x-p1.x)*(p2.x-p1.x)+(p2.y-p1.y)*(p2.y-p1.y))*4/5;
         p.x= (int)(p2.x + branchLength*Math.sin(randomAngle));

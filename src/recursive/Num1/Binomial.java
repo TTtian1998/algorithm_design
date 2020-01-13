@@ -1,5 +1,7 @@
 package Recursive.Num1;
 
+import java.util.Scanner;
+
 /**
  * @author 田泽鑫
  * @date 2019/12/23
@@ -14,18 +16,22 @@ public class Binomial {
     public static int IterationNum = 0;
     //备忘录保存
     public static int N = 100;
-    //初始话二维数组
+    //初始化二维数组
     public static int[][] array = new int[N][N];
     public static void main(String[] args)  {
+        System.out.println("从n个数中抓取k个元素,请输入n的值:");
+        int n = new Scanner(System.in).nextInt();
+        System.out.println("请输入k的值:");
+        int k = new Scanner(System.in).nextInt();
         try {
-            System.out.println(RecursiveSelect(17,5));
-            System.out.println("递归基本语句执行次数:"+ RecursiveNum);
+            System.out.println("二项式计算结果:"+ RecursiveSelect(n,k));
+            System.out.println("递归版本基本语句执行次数:"+ RecursiveNum);
             System.out.println("------------------------:");
-            System.out.println(memo(17,5));
-            System.out.println("备忘录基本语句执行次数:"+ memoNum);
+            System.out.println("二项式计算结果:"+ memo(n,k));
+            System.out.println("备忘录版本基本语句执行次数:"+ memoNum);
             System.out.println("------------------------:");
-            System.out.println(Iteration(7,2));
-            System.out.println("备忘录基本语句执行次数:"+ IterationNum);
+            System.out.println("二项式计算结果:"+ Iteration(n,k));
+            System.out.println("迭代版本基本语句执行次数:"+ IterationNum);
         }catch (Exception e){
             System.out.println(e);
         }
@@ -105,7 +111,7 @@ public class Binomial {
         long temp = a/(b*c);
         return temp;
     }
-    //阶乘 (最大计算到12,之后会溢出)
+    //阶乘计算(最大计算到12,之后会溢出)
     public static long caclu(int num){
         int a = 1;
         if (num==1){
@@ -119,5 +125,4 @@ public class Binomial {
             return a;
         }
     }
-
 }

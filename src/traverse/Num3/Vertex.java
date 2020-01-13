@@ -19,4 +19,5 @@ public class Vertex {
         state.cabbage = cabbageState;
         this.outputMsg = outputMsg;
     }
+
 }
